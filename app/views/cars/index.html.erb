@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="nav nav-pills" role="tablist">
+  <li><%= link_to "All", cars_path %></li>
+  <% @my_cars.each do |c| %>
+  <li><%= link_to "#{c.make}", cars_path(make:c.make) %></li>
+  <% end %>
+</ul>
+
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-md-4">
+       <div class="panel panel-default">
+        <div class="panel-body">
+          <h2><%= car.make %></h2>
+          <h3><%= car.year %> <%= car.model %></h3>
+          <p><%= car.odometer %></p>
+          <p>$<%= car.price %></p>
+          <% if car.pic_file_name != nil %>
+          <%= image_tag car.pic.url(:medium), class: "img-responsive" %>
+          <% end %>
+          <div class="btn-group">
+          <%= link_to 'Show', car, class: "btn btn-success" %>
+          <%= link_to 'Edit', edit_car_path(car), class: "btn btn-warning" %>
+          <%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+         </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'New Car', new_car_path, class: "btn btn-primary" %>
