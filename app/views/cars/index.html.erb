@@ -18,6 +18,8 @@
           <p>$<%= car.price %></p>
           <% if car.pic_file_name != nil %>
           <%= image_tag car.pic.url(:medium), class: "img-responsive" %>
+          <p>Posted on <%= car.created_at.strftime("%d/%m/%y") %> at <%= car.created_at.strftime("%I:%M %p") %></p>
+          <p>Updated on <%= car.updated_at.strftime("%d/%m/%y") %> at <%= car.updated_at.strftime("%I:%M %p") %></p>
           <% end %>
           <div class="btn-group">
           <%= link_to 'Show', car, class: "btn btn-success" %>

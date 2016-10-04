@@ -29,5 +29,8 @@
    <%= image_tag @car.pic.url(:medium), class: "img-responsive" %>
 <% end %>
 
+<p>Posted on <%= @car.created_at.strftime("%d/%m/%y") %> at <%= @car.created_at.strftime("%I:%M %p") %></p>
+<p>Updated on <%= @car.updated_at.strftime("%d/%m/%y") %> at <%= @car.updated_at.strftime("%I:%M %p") %></p>
+
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
